@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify / Semantic Retrieval / Million Song Dataset</title>
+
+    <!-- Fonts: Inter + JetBrains Mono for clean editorial typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <!-- Minimal Top Breadcrumb Navigation -->
+    <nav class="top-nav">
+        <div class="nav-right">
+            <span id="latency-val" class="mono-meta">LATENCY: 0.0 MS</span>
+            <div class="k-picker">
+                <label for="top-k-select" class="mono-meta">RESULTS:</label>
+                <select id="top-k-select">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="page-container">
+        
+        <!-- Headline -->
+        <h1 class="page-title">What's the vibe?</h1>
+
+        <!-- Minimal Search Box -->
+        <div class="search-section">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input"
+                    placeholder="e.g. melancholic acoustic ballad for a rainy morning..." autocomplete="off">
+                <button id="search-btn" class="action-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Results / Feedback Area -->
+        <section class="results-area">
+
+            <!-- Loading -->
+            <div id="loading-state" class="state-msg hidden">
+                <span class="mono-meta">SCANNING 57,650 VECTORS VIA SIMD INNER PRODUCT...</span>
+            </div>
+
+            <!-- Initial Prompt -->
+            <div id="initial-state" class="state-msg">
+                <span class="mono-meta">ENTER A QUERY ABOVE TO BEGIN SEARCH</span>
+            </div>
+
+            <!-- No Results -->
+            <div id="no-results-state" class="state-msg hidden">
+                <span class="mono-meta">NO MATCHES FOUND. TRY BROADER EMOTIONAL TERMS.</span>
+            </div>
+
+            <!-- Results List (Formatted like the exam options in screenshot) -->
+            <div id="results-grid" class="results-list hidden"></div>
+
+        </section>
+
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

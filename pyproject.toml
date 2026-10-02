@@ -1,0 +1,23 @@
+[project]
+name = "embedding"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "milvus-lite>=3.2.1",
+    "pandas>=3.0.6",
+    "pymilvus>=3.0.1",
+    "sentence-transformers>=6.0.1",
+    "torch>=2.14.0",
+    "tqdm>=4.70.1",
+    "uvicorn>=0.53.0",
+]
+
+[project.scripts]
+embedding = "embedding:main"
+
+[build-system]
+requires = ["uv_build>=0.12.16,<0.13.0"]
+build-backend = "uv_build"

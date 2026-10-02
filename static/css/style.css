@@ -1,0 +1,344 @@
+/* ==========================================================================
+   Modern Minimalist Light Design System
+   Pure white background, high-contrast crisp typography, sharp rectangular buttons
+   ========================================================================== */
+
+:root {
+    --bg-page: #ffffff;
+    --bg-surface: #fafafa;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fbfbfb;
+    
+    --border-subtle: #e4e4e7;
+    --border-light: #d4d4d8;
+    --border-focus: #09090b;
+
+    --text-primary: #09090b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    --text-dim: #a1a1aa;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --btn-radius: 2px;
+    --card-radius: 4px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Top Navigation
+   ========================================================================== */
+.top-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    background-color: var(--bg-page);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.k-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.k-picker select {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: #ffffff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--btn-radius);
+    padding: 0.25rem 0.55rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.k-picker select:focus {
+    border-color: var(--border-focus);
+}
+
+/* ==========================================================================
+   Main Page Layout
+   ========================================================================== */
+.page-container {
+    max-width: 820px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 4.5rem 1.5rem 6rem 1.5rem;
+    flex: 1;
+}
+
+.mono-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Typography (Exact Match to Reference Screenshot)
+   ========================================================================== */
+.page-title {
+    font-size: 2.85rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+}
+
+.page-intro {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    letter-spacing: -0.015em;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   Search Input Section & Buttons (Matching Screenshot Style)
+   ========================================================================== */
+.search-section {
+    margin-bottom: 2.5rem;
+}
+
+.search-input-wrapper {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.search-input-wrapper input {
+    flex: 1;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--btn-radius);
+    padding: 0.85rem 1.1rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.search-input-wrapper input:focus {
+    border-color: var(--border-focus);
+}
+
+.search-input-wrapper input::placeholder {
+    color: var(--text-dim);
+}
+
+/* Primary Action Button (Exact Match to Screenshot) */
+.action-btn {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0 1.6rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.01em;
+}
+
+.action-btn:hover {
+    background: #262626;
+    border-color: #262626;
+}
+
+.action-btn:active {
+    opacity: 0.9;
+}
+
+.section-divider {
+    height: 1px;
+    background-color: var(--border-subtle);
+    margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   Results Area
+   ========================================================================== */
+.results-area {
+    min-height: 280px;
+}
+
+.state-msg {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.result-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--card-radius);
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.result-item:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-light);
+}
+
+.item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.title-sep {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.rank-tag {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.song-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+}
+
+.artist-name {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.score-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #15803d;
+    background: #f0fdf4;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--btn-radius);
+    border: 1px solid #bbf7d0;
+    white-space: nowrap;
+}
+
+.lyrics-block {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--border-subtle);
+}
+
+.item-bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+}
+
+/* Secondary Button (Matching Screenshot Outline Style) */
+.spotify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.45rem 0.95rem;
+    border-radius: var(--btn-radius);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.spotify-link:hover {
+    background: #f4f4f5;
+    border-color: var(--border-focus);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 640px) {
+    .page-title {
+        font-size: 2.1rem;
+    }
+    .page-intro {
+        font-size: 0.95rem;
+    }
+    .top-nav {
+        padding: 1rem;
+    }
+    .search-input-wrapper {
+        flex-direction: column;
+    }
+    .action-btn {
+        padding: 0.75rem 1rem;
+        justify-content: center;
+    }
+}
